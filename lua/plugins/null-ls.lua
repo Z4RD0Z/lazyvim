@@ -5,10 +5,10 @@ return {
       local nls = require("null-ls")
       return {
         sources = {
-          nls.builtins.diagnostics.phpstan.with({
-            extra_args = {
-              "--memory-limit=2G",
-            },
+          nls.builtins.diagnostics.command.with({
+            command = "sh",
+            args = { "path/to/phpstan.sh", "--memory-limit=2G" },
+            to_stdin = true,
           }),
         },
       }
